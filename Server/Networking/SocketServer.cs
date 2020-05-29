@@ -6,10 +6,12 @@ using System;
 
 namespace FileShareSystem.Server.Networking {
     class SocketServer {
-        private Socket server;
-        private Broker broker;
 
-        public SocketServer(Broker broker) {
+        private readonly Socket server;
+        private readonly IBroker broker;
+        private const int BACKLOG = 10;
+
+        public SocketServer(IBroker broker) {
             this.broker = broker;
             server = new Socket(
                 AddressFamily.InterNetwork,
@@ -24,7 +26,7 @@ namespace FileShareSystem.Server.Networking {
         }
 
         public void ListenAndProcess() {
-            server.Listen(10);
+            server.Listen(BACKLOG);
             using (server) {
                 var point = server.LocalEndPoint as IPEndPoint;
                 Console.WriteLine("Listening port {0}.", point.Port);

@@ -1,6 +1,3 @@
-using System;
-using System.Text;
-
 namespace FileShareSystem.Server {
     public struct Response {
         public string Message;

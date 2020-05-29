@@ -1,13 +1,11 @@
-using System.Xml.Linq;
-using System.Text;
 using System;
 using System.Collections.Generic;
 
 namespace FileShareSystem.Server {
     public class FileController {
-        private Dictionary<string, Func<Request, Response>> functions = new Dictionary<string, Func<Request, Response>>();
+        private readonly Dictionary<string, Func<Request, Response>> functions = new Dictionary<string, Func<Request, Response>>();
 
-        private FileService fileService = new FileService();
+        private readonly FileService fileService = new FileService();
 
         public FileController() {
             functions.Add(RequestEnum.Get.ToString(), GetFile);

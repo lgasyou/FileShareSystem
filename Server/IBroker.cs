@@ -1,5 +1,5 @@
 namespace FileShareSystem.Server {
-    public interface Broker {
+    public interface IBroker {
         byte[] ProcessData(byte[] data);
     }
 }

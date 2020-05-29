@@ -4,7 +4,7 @@ namespace FileShareSystem.Server {
     class ServerMain {
         static void Main(string[] args) {
             FileController fileController = new FileController();
-            Broker broker = new FileShareBroker(fileController);
+            IBroker broker = new FileShareBroker(fileController);
             SocketServer socketServer = new SocketServer(broker);
             socketServer.ListenAndProcess();
         }

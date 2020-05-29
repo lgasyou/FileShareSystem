@@ -1,10 +1,9 @@
 using System.Text;
-using System;
 using Newtonsoft.Json;
 
 namespace FileShareSystem.Server {
-    public class FileShareBroker : Broker {
-        private FileController fileController;
+    public class FileShareBroker : IBroker {
+        private readonly FileController fileController;
 
         public FileShareBroker(FileController fileController) {
             this.fileController = fileController;
