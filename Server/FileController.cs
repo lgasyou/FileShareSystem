@@ -43,8 +43,7 @@ namespace FileShareSystem.Server {
         }
 
         public Response PutFile(Request request) {
-            string message = fileService.PutFile(request.Data as byte[], request.Arguments[0]);
-            return ResponseHelper.Ok(message);
+            return fileService.PutFile(request.Data as byte[], request.Arguments[0]);
         }
 
         public Response GetFile(Request request) {
